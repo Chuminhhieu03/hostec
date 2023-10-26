@@ -1,0 +1,171 @@
+{% extends 'base.html' %} 
+{% block title %}Order{% endblock title %} 
+{% block content %}
+
+<style>
+body {
+  background-color: #3c373e;
+  font-weight: 300;
+}
+
+table{
+    background-color: #3c373e;
+}
+
+th,td{
+    background-color: transparent  !important;
+}
+p {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+}
+
+
+a {
+  -webkit-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
+a,
+a:hover {
+  text-decoration: none !important;
+}
+
+.content {
+  padding: 7rem 0;
+}
+
+h2 {
+  font-size: 20px;
+  color: #fff;
+}
+
+.custom-table {
+  min-width: 900px;
+}
+.custom-table thead tr,
+.custom-table thead th {
+  padding-bottom: 30px;
+  border-top: none;
+  border-bottom: none !important;
+  color: #fff;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+.custom-table tbody th,
+.custom-table tbody td {
+  color: #777;
+  font-weight: 400;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  font-weight: 300;
+  border: none;
+  -webkit-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
+.custom-table tbody th small,
+.custom-table tbody td small {
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 300;
+}
+.custom-table tbody th a,
+.custom-table tbody td a {
+  color: rgba(255, 255, 255, 0.3);
+}
+.custom-table tbody th .more,
+.custom-table tbody td .more {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+.custom-table tbody tr {
+  -webkit-transition: 0.3s all ease;
+  -o-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
+.custom-table tbody tr:hover td,
+.custom-table tbody tr:focus td {
+  color: #fff;
+}
+.custom-table tbody tr:hover td a,
+.custom-table tbody tr:focus td a {
+  color: #fdd114;
+}
+.custom-table tbody tr:hover td .more,
+.custom-table tbody tr:focus td .more {
+  color: #fdd114;
+}
+.custom-table .td-box-wrap {
+  padding: 0;
+}
+.custom-table .box {
+  background: #fff;
+  border-radius: 4px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.custom-table .box td,
+.custom-table .box th {
+  border: none !important;
+}
+
+</style>
+
+
+<section id="breadcrumbs" class="breadcrumbs">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <h2>My Order</h2>
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li>My Order</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<div class="content">
+    <div class="container">
+       <h2 class="mb-5">My Order </h2>
+       <div class="table-responsive">
+        {% if orders|length > 0 %}
+          <table class="table table-striped custom-table">
+             <thead>
+                <tr>
+                   <th scope="col">Order</th>
+                   <th scope="col">Name</th>
+                   <th scope="col">Phone</th>
+                   <th scope="col">Address</th>
+                   <th scope="col">Value</th>
+                   <th scope="col">Status</th>
+                   <th scope="col">Date</th>
+                   <th scope="col"></th>
+                </tr>
+             </thead>
+             <tbody>
+                {% for order in orders %}
+                <tr scope="row"></tr>
+                    <td>#{{order.id_order}}</td>
+                    <td>{{order.name}}</td>
+                    <td>{{order.phone}}</td>
+                    <td>{{order.address}}</td>
+                    <td>{{order.value}} $</td>
+                    <td class="more">{{order.status}}</td>
+                    <td>{{order.date}}</td>
+                    <td><a href="{% url 'getOrder' id=order.id_order %}" class="more">Details</a></td>
+                </tr>
+                {% endfor %}
+             </tbody>
+          </table>
+        {% else %}
+        <div style="color : white">You don't have any orders yet </div>
+        {% endif %}
+       </div>
+    </div>
+ </div>
+
+{% endblock content %}

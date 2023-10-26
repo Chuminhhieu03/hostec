@@ -1,0 +1,234 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %}Login{% endblock title %} 
+{% block content %}
+<div class="cd-signin-modal js-signin-modal">
+  <!-- this is the entire modal form, including the background -->
+  <div class="cd-signin-modal__container">
+    <!-- this is the container wrapper -->
+    <ul
+      class="cd-signin-modal__switcher js-signin-modal-switcher js-signin-modal-trigger"
+    >
+      <li>
+        <a href="#0" data-signin="login" data-type="login" class="cd-selected"
+          >Sign in</a
+        >
+      </li>
+      <li>
+        <a href="#0" data-signin="signup" data-type="signup">New account</a>
+      </li>
+      <!-- <li>
+        <a href="#0" data-signin="reset" data-type="reset">Reset account</a>
+      </li> -->
+    </ul>
+
+    <div
+      class="cd-signin-modal__block js-signin-modal-block cd-signin-modal__block--is-selected"
+      data-type="login"
+    >
+      <!-- log in form -->
+      <form action="/auth/login/" method="post" class="cd-signin-modal__form" id="signin-form">
+        {% csrf_token %}
+        <p class="cd-signin-modal__fieldset">
+          <label
+            class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace"
+            for="login-email"
+            >E-mail</label
+          >
+          <input
+            class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border"
+            id="login-email"
+            name="username"
+            type="text"
+            placeholder="UserName"
+          />
+        </p>
+
+        <p class="cd-signin-modal__fieldset">
+          <label
+            class="cd-signin-modal__label cd-signin-modal__label--password cd-signin-modal__label--image-replace"
+            for="signin-password"
+            >Password</label
+          >
+          <input
+            class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border"
+            id="signin-password"
+            type="password"
+            name="password"
+            placeholder="Password"
+          />
+          <img
+            class="cd-signin-modal__hide-password js-hide-password"
+            src="{% static '/assets/img/login/eye-enabled.svg' %}"
+            alt=""
+          />
+        </p>
+
+        <p class="cd-signin-modal__fieldset">
+          <input
+            type="checkbox"
+            id="remember-me"
+            class="cd-signin-modal__input"
+          />
+          <label for="remember-me">Remember me</label>
+        </p>
+
+        <p class="cd-signin-modal__fieldset">
+          <button
+          class="cd-signin-modal__input cd-signin-modal__input--full-width loginButton"
+          type="submit"
+          >
+          Login
+          </button>
+        </p>
+      </form>
+      <p class="cd-signin-modal__bottom-message js-signin-modal-trigger">
+        <a href="#0" data-signin="reset">Forget your password</a>
+      </p>
+    </div>
+    <!-- cd-signin-modal__block -->
+
+    <div
+      class="cd-signin-modal__block js-signin-modal-block"
+      data-type="signup"
+    >
+      <!-- sign up form -->
+      <form action="/auth/signup/" method="post" class="cd-signin-modal__form" id="signup-form">
+        {% csrf_token %}
+        <p class="cd-signin-modal__fieldset">
+          <label
+            class="cd-signin-modal__label cd-signin-modal__label--username cd-signin-modal__label--image-replace"
+            for="signup-username"
+            >Username</label
+          >
+          <input
+            class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border"
+            id="signup-username"
+            name="username"
+            type="text"
+            placeholder="Username"
+          />
+        </p>
+
+        <p class="cd-signin-modal__fieldset">
+          <label
+            class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace"
+            for="signup-email"
+            >E-mail</label
+          >
+          <input
+            class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border"
+            id="signup-email"
+            name="email"
+            type="email"
+            placeholder="E-mail"
+          />
+        </p>
+
+        <p class="cd-signin-modal__fieldset">
+          <label
+            class="cd-signin-modal__label cd-signin-modal__label--password cd-signin-modal__label--image-replace"
+            for="signup-password"
+            >Password</label
+          >
+          <input
+            class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border"
+            id="signup-password"
+            type="password"
+            name="pass1"
+            placeholder="Password"
+          />
+          <img
+            class="cd-signin-modal__hide-password js-hide-password"
+            src="{% static '/assets/img/login/eye-enabled.svg' %}"
+            alt=""
+          />
+        </p>
+
+        <p class="cd-signin-modal__fieldset">
+          <label
+            class="cd-signin-modal__label cd-signin-modal__label--password cd-signin-modal__label--image-replace"
+            for="confirm-password"
+            >Confirm Password</label
+          >
+          <input
+            class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border"
+            id="confirm-password"
+            name="pass2"
+            type="password"
+            placeholder="Confirm Password"
+          />
+          <img
+            class="cd-signin-modal__hide-password js-hide-password"
+            src="{% static '/assets/img/login/eye-enabled.svg' %}"
+            alt=""
+          />
+        </p>
+
+        <p class="cd-signin-modal__fieldset">
+          <input
+            type="checkbox"
+            id="accept-terms"
+            class="cd-signin-modal__input"
+          />
+          <label for="accept-terms"
+            >I agree to the <a href="#0">Terms</a></label
+          >
+        </p>
+
+        <p class="cd-signin-modal__fieldset">
+          <button
+            class="cd-signin-modal__input creat-button cd-signin-modal__input--full-width cd-signin-modal__input--has-padding"
+            type="submit"
+          >
+          Create account
+          </button>
+        </p>
+      </form>
+    </div>
+    <!-- cd-signin-modal__block -->
+
+    <div class="cd-signin-modal__block js-signin-modal-block" data-type="reset">
+      <!-- reset password form -->
+      <p class="cd-signin-modal__message">
+        Lost your password? Please enter your email address. You will receive a
+        link to create a new password.
+      </p>
+
+      <form class="cd-signin-modal__form" action="/auth/request-reset-email/" method="POST">
+        {% csrf_token %}
+        <p class="cd-signin-modal__fieldset">
+          <label
+            class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace"
+            for="reset-email"
+            >E-mail</label
+          >
+          <input
+            class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding cd-signin-modal__input--has-border"
+            id="reset-email"
+            type="email"
+            name="email"
+            placeholder="E-mail"
+          />
+          <span class="cd-signin-modal__error">Error message here!</span>
+        </p>
+
+        <p class="cd-signin-modal__fieldset">
+          <input
+            class="cd-signin-modal__input cd-signin-modal__input--full-width cd-signin-modal__input--has-padding"
+            type="submit"
+            value="Reset password"
+          />
+        </p>
+      </form>
+
+      <p class="cd-signin-modal__bottom-message js-signin-modal-trigger">
+        <a href="#0" data-signin="login">Back to log-in</a>
+      </p>
+    </div>
+    <!-- cd-signin-modal__block -->
+  </div>
+  <!-- cd-signin-modal__container -->
+</div>
+
+{% endblock content %}

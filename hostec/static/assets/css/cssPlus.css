@@ -1,0 +1,493 @@
+/*==================================================
+=            Bootstrap 3 Media Queries             =
+==================================================*/
+
+
+
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {}
+
+
+
+/*==========  Non-Mobile First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {}
+
+
+
+/*=====================================================
+=            Bootstrap 2.3.2 Media Queries            =
+=====================================================*/
+@media only screen and (max-width : 1200px) {}
+
+@media only screen and (max-width : 979px) {}
+
+@media only screen and (max-width : 767px) {}
+
+@media only screen and (max-width : 480px) {}
+
+@media only screen and (max-width : 320px) {}
+
+
+/* default styles here for older browsers. 
+       I tend to go for a 600px - 960px width max but using percentages
+    */
+@media only screen and (min-width:960px) {
+    /* styles for browsers larger than 960px; */
+}
+
+@media only screen and (min-width:1440px) {
+    /* styles for browsers larger than 1440px; */
+}
+
+@media only screen and (min-width:2000px) {
+    /* for sumo sized (mac) screens */
+}
+
+@media only screen and (max-device-width:480px) {
+    /* styles for mobile browsers smaller than 480px; (iPhone) */
+}
+
+@media only screen and (device-width:768px) {
+    /* default iPad screens */
+}
+
+/* different techniques for iPad screening */
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+    /* For portrait layouts only */
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+    /* For landscape layouts only */
+}
+
+/*******Nuevos mensajes de error******/
+
+.new-message-box {
+    margin: 15px 0;
+    padding-left: 20px;
+    margin-bottom: 25px !important;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.new-message-box.active {
+    opacity: 1;
+    max-height: 200px;
+}
+
+.new-message-box p {
+    font-size: 1.15em;
+    font-weight: 600;
+}
+
+.info-tab {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    position: relative;
+    top: 8px;
+}
+
+.info-tab {
+    float: left;
+    margin-left: -23px;
+}
+
+.info-tab i::before {
+    width: 24px;
+    height: 24px;
+    box-shadow: inset 12px 0 13px rgba(0, 0, 0, 0.5);
+}
+
+.info-tab i::after {
+    width: 0;
+    height: 0;
+    border: 12px solid transparent;
+    border-bottom-color: #fff;
+    border-left-color: #fff;
+    bottom: -18px;
+}
+
+.info-tab i::before,
+.info-tab i::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    bottom: -17px;
+    transform: rotateX(60deg);
+}
+
+.note-box,
+.warning-box,
+.tip-box-success,
+.tip-box-danger,
+.tip-box-warning,
+.tip-box-info,
+.tip-box-alert {
+    padding: 12px 8px 3px 26px;
+}
+
+
+/***Success****/
+
+.new-message-box-success {
+    background: #eeeeee;
+    padding: 3px;
+    margin: 10px 0;
+}
+
+.tip-icon-success {
+    background: #8BC34A;
+}
+
+.tip-box-success {
+    color: #33691E;
+    background: #DCEDC8;
+}
+
+.tip-icon-success::before {
+    font-size: 25px;
+    content: "\f00c";
+    top: 8px;
+    left: 11px;
+    font-family: FontAwesome;
+    position: absolute;
+    color: white;
+}
+
+.tip-icon-success i::before {
+    background: #8BC34A;
+}
+
+
+/*******Danger*******/
+.new-message-box-danger {
+    background: #eeeeee;
+    padding: 3px;
+    margin: 10px 0;
+}
+
+.tip-icon-danger {
+    background: #f44336;
+}
+
+.tip-box-danger {
+    color: #b71c1c;
+    background: #FFCCBC;
+}
+
+.tip-icon-danger::before {
+    font-size: 25px;
+    content: "\f00d";
+    top: 8px;
+    left: 11px;
+    font-family: FontAwesome;
+    position: absolute;
+    color: white;
+}
+
+.tip-icon-danger i::before {
+    background: #f44336;
+}
+
+/*******warning*******/
+.new-message-box-warning {
+    background: #eeeeee;
+    padding: 3px;
+    margin: 10px 0;
+}
+
+.tip-icon-warning {
+    background: #FFEB3B;
+}
+
+.tip-box-warning {
+    color: #212121;
+    background: #FFF9C4;
+}
+
+.tip-icon-warning::before {
+    font-size: 25px;
+    content: "\f071";
+    top: 8px;
+    left: 11px;
+    font-family: FontAwesome;
+    position: absolute;
+    color: #212121;
+}
+
+.tip-icon-warning i::before {
+    background: #FFEB3B;
+}
+
+/*******info*******/
+.new-message-box-info {
+    background: #eeeeee;
+    padding: 3px;
+    margin: 10px 0;
+}
+
+.tip-box-info {
+    color: #01579B;
+    background: #B3E5FC;
+}
+
+.tip-icon-info {
+    background: #03A9F4;
+}
+
+.tip-icon-info::before {
+    font-size: 25px;
+    content: "\f129";
+    top: 8px;
+    left: 11px;
+    font-family: FontAwesome;
+    position: absolute;
+    color: white
+}
+
+.tip-icon-info i::before {
+    background: #03A9F4;
+}
+
+
+/*******info*******/
+.new-message-box-alert {
+    background: #FF6F00;
+    padding: 3px;
+    margin: 10px 0;
+}
+
+.tip-box-alert {
+    color: #212121;
+    background: #FFF8E1;
+}
+
+.tip-icon-alert {
+    background: #FF6F00;
+}
+
+.tip-icon-alert::before {
+    font-size: 25px;
+    content: "\f06a";
+    top: 8px;
+    left: 11px;
+    font-family: FontAwesome;
+    position: absolute;
+    color: white
+}
+
+.tip-icon-alert i::before {
+    background: #FF6F00;
+}
+
+
+/*************************/
+
+body {
+    background-color: #ffffff;
+}
+
+.noti-right {
+    position: absolute;
+    right: 0;
+}
+
+
+/* searh-button */
+
+.s130 {
+    display: flex;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    background: url("../images/Searchs_130.png");
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-bottom: 15px;
+}
+
+.s130 form {
+    width: 100%;
+    max-width: 790px;
+}
+
+.s130 form .inner-form {
+    display: -ms-flexbox;
+    display: flex;
+    height: 55px;
+    width: 100%;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-align: center;
+    align-items: center;
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 34px;
+    overflow: hidden;
+}
+
+.s130 form .inner-form .input-field {
+    height: 68px;
+}
+
+.s130 form .inner-form .input-field input {
+    height: 100%;
+    background: transparent;
+    border: 0;
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    color: #000;
+}
+
+.s130 form .inner-form .input-field input.placeholder {
+    color: #222;
+    font-size: 16px;
+}
+
+.s130 form .inner-form .input-field input:-moz-placeholder {
+    color: #222;
+    font-size: 16px;
+}
+
+.s130 form .inner-form .input-field input::-webkit-input-placeholder {
+    color: #222;
+    font-size: 16px;
+}
+
+.s130 form .inner-form .input-field input:hover,
+.s130 form .inner-form .input-field input:focus {
+    box-shadow: none;
+    outline: 0;
+}
+
+.s130 form .inner-form .input-field.first-wrap {
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    background: #d3f4f3;
+    min-width: 400px;
+}
+
+.s130 form .inner-form .input-field.first-wrap input {
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+.s130 form .inner-form .input-field.first-wrap .svg-wrapper {
+    min-width: 80px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.s130 form .inner-form .input-field.first-wrap svg {
+    width: 36px;
+    height: 36px;
+    fill: #222;
+}
+
+.s130 form .inner-form .input-field.second-wrap {
+    min-width: 150px;
+}
+
+.s130 form .inner-form .input-field.second-wrap .btn-search {
+    height: 100%;
+    width: 100%;
+    white-space: nowrap;
+    font-size: 16px;
+    color: #fff;
+    border: 0;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    background: #00bae0;
+    transition: all .2s ease-out, color .2s ease-out;
+    font-weight: 300;
+}
+
+.s130 form .inner-form .input-field.second-wrap .btn-search:hover {
+    background: #0195b3;
+}
+
+.s130 form .inner-form .input-field.second-wrap .btn-search:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
+.s130 form .info {
+    font-size: 15px;
+    color: #ccc;
+    padding-left: 26px;
+}
+
+@media screen and (max-width: 992px) {
+    .s130 form .inner-form .input-field {
+        height: 50px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .s130 form .inner-form .input-field.first-wrap .svg-wrapper {
+        min-width: 40px;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding: 0 10px;
+    }
+
+    .s130 form .inner-form .input-field.first-wrap svg {
+        width: 26px;
+        height: 26px;
+        fill: #222;
+    }
+
+    .s130 form .inner-form .input-field.second-wrap {
+        min-width: 100px;
+    }
+
+    .s130 form .inner-form .input-field.second-wrap .btn-search {
+        font-size: 13px;
+    }
+}

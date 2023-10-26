@@ -1,0 +1,106 @@
+{% extends 'base.html' %} 
+{% block title %}Home{% endblock title %} 
+{% block content %}
+
+    <main id="main">
+      <!-- ======= Breadcrumbs ======= -->
+      <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center">
+            <h2>Portolio</h2>
+            <ol>
+              <li><a href="/">Home</a></li>
+              <li>Portolio</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+      <!-- End Breadcrumbs -->
+
+      <!-- ======= Portfolio Section ======= -->
+      <section id="portfolio" class="portfolio">
+        <div class="container">
+          <div class="search-box d-flex justify-content-center align-items-center" data-aos="fade-up">
+            <div class="s130">
+              <form id="search">
+                <div class="inner-form">
+                  <div class="input-field first-wrap">
+                    <div class="svg-wrapper">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                      </svg>
+                    </div>
+                    <input id="searchProduct" type="text" placeholder="What are you looking for?" />
+                    <input id="csrf_token_search"type="hidden" name="csrf_token" value="{{csrf_token}}">
+                  </div>
+                  <div class="input-field second-wrap">
+                    <button class="btn-search" type="submit">SEARCH</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div>
+              <nav id="navbar" class="navbar">
+              <ul>
+                <li class="dropdown">
+                  <a href="#"
+                    ><span>Price</span>
+                    <i class="bi bi-chevron-down"></i
+                  ></a>
+                  <ul>
+                    <li><a href="#">Low to High</a></li>
+                    <li><a href="#">High to Low</a></li>
+                  </ul>
+                </li>
+              </ul>
+              </nav>
+            </div>
+          </div>
+          <div class="row" data-aos="fade-up">
+            <div class="col-lg-12 d-flex justify-content-center">
+              <ul id="portfolio-flters">
+                <li data-filter="*" class="filter-active">All</li>
+                {% for category in categories %}
+                <li data-filter=".filter-{{category}}">{{category}}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+                                                                                                                                                                                                                                                                                                                                                                
+            <div class="row portfolio-container" data-aos="fade-up">
+              {%for product in products %}
+                <div class="col-lg-4 col-md-6 portfolio-item filter-{{product.category|lower}}">
+                  <img
+                    src="{{product.image.url}}"
+                    class="img-fluid"
+                    alt=""
+                  />
+                  <div class="portfolio-info">
+                    <h4>{{product.product_name}}</h4>
+                    <p>{{product.category}}</p>
+                    <a
+                      href="{{product.image.url}}"
+                      data-gallery="portfolioGallery"
+                      class="portfolio-lightbox preview-link"
+                      title="{{product.product_name}}"
+                      ><i class="bx bx-plus"></i
+                    ></a>
+                    <a
+                      href="{% url 'detail' id=product.id %}"
+                      class="details-link"
+                      title="More Details"
+                      ><i class="bx bx-link"></i
+                    ></a>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          
+        </div>
+      </section>
+      <!-- End Portfolio Section -->
+    </main>
+    <!-- End #main -->
+
+{% endblock content %}
+  

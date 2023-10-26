@@ -1,0 +1,169 @@
+{% extends 'base.html' %} 
+{% block title %}Home{% endblock title %} 
+{% block content %}
+
+
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+  <div
+    id="heroCarousel"
+    data-bs-interval="5000"
+    class="carousel slide carousel-fade"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-inner" role="listbox">
+      <!-- Slide 1 -->
+      <div
+        class="carousel-item active"
+        style="background-image: url(/static/assets/img/slide/slide-1.jpg)"
+      >
+        <div class="carousel-container">
+          <div class="carousel-content animate__animated animate__fadeInUp">
+            <h2>Welcome to <span>Flattern</span></h2>
+            <p>
+              We are proud to present to you a great online shopping experience with top quality technology products. Here, you will find a wide range of mobile phone and computer products in all price segments, suitable for all customer types!
+            </p>
+            <div class="text-center">
+              <a href="" class="btn-get-started">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div
+        class="carousel-item"
+        style="background-image: url(/static/assets/img/slide/slide-2.jpg)"
+      >
+        <div class="carousel-container">
+          <div class="carousel-content animate__animated animate__fadeInUp">
+            <h2>Lorem Ipsum Dolor</h2>
+            <p>
+              We are proud to present to you a great online shopping experience with top quality technology products. Here, you will find a wide range of mobile phone and computer products in all price segments, suitable for all customer types!
+            </p>
+            <div class="text-center">
+              <a href="" class="btn-get-started">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div
+        class="carousel-item"
+        style="background-image: url(/static/assets/img/slide/slide-3.jpg)"
+      >
+        <div class="carousel-container">
+          <div class="carousel-content animate__animated animate__fadeInUp">
+            <h2>Flattern</h2>
+            <p>
+              We are proud to present to you a great online shopping experience with top quality technology products. Here, you will find a wide range of mobile phone and computer products in all price segments, suitable for all customer types!
+            </p>
+            <div class="text-center">
+              <a href="" class="btn-get-started">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a
+      class="carousel-control-prev"
+      href="#heroCarousel"
+      role="button"
+      data-bs-slide="prev"
+    >
+      <span
+        class="carousel-control-prev-icon bx bx-left-arrow"
+        aria-hidden="true"
+      ></span>
+    </a>
+
+    <a
+      class="carousel-control-next"
+      href="#heroCarousel"
+      role="button"
+      data-bs-slide="next"
+    >
+      <span
+        class="carousel-control-next-icon bx bx-right-arrow"
+        aria-hidden="true"
+      ></span>
+    </a>
+
+    <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+  </div>
+</section>
+<!-- End Hero -->
+
+<main id="main">
+  <!-- ======= Cta Section ======= -->
+  <section id="cta" class="cta">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9 text-center text-lg-left">
+          <h3>We've created more than <span>200 websites</span> this year!</h3>
+          <p>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
+          </p>
+        </div>
+        <div class="col-lg-3 cta-btn-container text-center">
+          <a class="cta-btn align-middle" href="#">Request a quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Cta Section -->
+
+  <!-- ======= Portfolio Section ======= -->
+  <section id="portfolio" class="portfolio">
+    <div class="container">
+      <div class="row" data-aos="fade-up">
+        <div class="col-lg-12 d-flex justify-content-center">
+          <ul id="portfolio-flters">
+            <li data-filter="*" class="filter-active">All</li>
+            {% for category in categories %}
+            <li data-filter=".filter-{{category}}">{{category}}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <div class="row portfolio-container" data-aos="fade-up">
+        {%for product in products %}
+        <div class="col-lg-4 col-md-6 portfolio-item filter-{{product.category|lower}}">
+          <img
+            src="{{product.image.url}}"
+            class="img-fluid"
+            alt=""
+          />
+          <div class="portfolio-info">
+            <h4>{{product.product_name}}</h4>
+            <p>{{product.category}}</p>
+            <a
+              href="{{product.image.url}}"
+              data-gallery="portfolioGallery"
+              class="portfolio-lightbox preview-link"
+              title="{{product.product_name}}"
+              ><i class="bx bx-plus"></i
+            ></a>
+            <a
+              href="{% url 'detail' id=product.id %}"
+              class="details-link"
+              title="More Details"
+              ><i class="bx bx-link"></i
+            ></a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <!-- End Portfolio Section -->
+</main>
+<!-- End #main -->
+
+{% endblock content %}
